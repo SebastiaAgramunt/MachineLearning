@@ -1,2 +1,4 @@
 *.ipynb_checkpoints
 TensorFlowExamples/tmp
+TensorFlowExamples/MNIST/MNIST_data
+MNIST/tmp/
