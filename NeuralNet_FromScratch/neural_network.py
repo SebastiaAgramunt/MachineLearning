@@ -56,7 +56,7 @@ class NeuralNetwork:
         self.o3 = sigmoid(np.dot(self.o2,self.w3) + self.b3) #output of nn
         return self.o3
 
-    def BackPropagation(self,y,learning_rate,verbose = True):
+    def BackPropagation(self,y,learning_rate,verbose = False):
         if verbose:
             print('Cross_Entropy :{}'.format(multiclass_cross_entropy(self.o3, y)))
 
@@ -122,35 +122,19 @@ if __name__ == "__main__":
                        n_neurons=n_neurons) #number of neurons
 
     loss = list()
+    start_time = time.time()
     for i in range(epochs):
         data = get_batches(X=x_train,Y=y_train,batch_size=20)
         for x,y in data:
             y = np.array(y)
             nn.TrainStep(x,y,learning_rate=learning_rate)
             loss.append(multiclass_cross_entropy(nn.ForwardPass(x),y))
-    
+    end_time = time.time()
+
+    print("Training time: {0:.2f} seconds".format(end_time-start_time))
     print("Accuracy on the train: {}".format(nn.Accuracy(x_train,y_train)))
     print("Accuracy on the test: {}".format(nn.Accuracy(x_test,y_test)))
     
     plt.plot(loss)
     plt.show()
-
-
-    '''
-    a = np.array([1, 0, 3])
-    b = np.zeros((3, 4))
-    b[np.arange(3), a] = 1
-    print(b)
-    '''
-    '''
-    start_time = time.time()
-    for i in range(1000):
-        y = np.array(y_train)
-        nn.TrainStep(x_train,y,learning_rate=0.5)
-    elapsed_time = time.time() - start_time
-    print("Finished Training in {0:.2f} seconds".format(elapsed_time))
-    '''
-
-    #nn.ForwardPass(x_train[0:10])
-    #nn.BackPropagation(y_train[0:10],learning_rate=0.01)
 
