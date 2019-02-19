@@ -1,5 +1,6 @@
 *.ipynb_checkpoints
 TensorFlowExamples/tmp
 TensorFlowExamples/MNIST/MNIST_data
+MNIST/MNIST_data
 MNIST/tmp/
 Autoencoder/tmp

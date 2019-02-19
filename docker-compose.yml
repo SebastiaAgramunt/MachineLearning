@@ -1,0 +1,9 @@
+version: '3'
+services:
+  ml:
+    build: .
+    ports:
+     - "8888:8888"
+    volumes:
+     - .:/home/
+    container_name: "ml_"
