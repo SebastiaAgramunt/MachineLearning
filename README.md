@@ -33,7 +33,7 @@ Now install the kernel in jupyter
 $(which python) -m ipykernel install --name=ml
 ```
 
-check the instructions [here](https://gist.github.com/SebastiaAgramunt/5185ccf8637e69f611bd1217a98289b2). Then you can lunch the notebook by typing
+check the instructions [here](https://gist.github.com/SebastiaAgramunt/5185ccf8637e69f611bd1217a98289b2). Then you can launch the notebook by typing
 
 ```bash
 jupyter notebook
